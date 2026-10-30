@@ -1,0 +1,29 @@
+{
+  "name": "Apple Style Modular",
+  "author": "Developer",
+  "version": "1.0.0",
+  "device": "Xiaomi Smart Band 10",
+  "width": 212,
+  "height": 520,
+  "type": "lua",
+  "main": "watchface.lua",
+  "styles": [
+    {"id": 1, "name": "Бронзовый", "color": "0xCD7F32"},
+    {"id": 2, "name": "Золотой", "color": "0xFFD700"},
+    {"id": 3, "name": "Серебряный", "color": "0xC0C0C0"}
+  ],
+  "config": [
+    {
+      "id": "widget_type",
+      "name": "Нижний виджет",
+      "type": "select",
+      "default": 1,
+      "options": [
+        {"value": 1, "name": "Шаги"},
+        {"value": 2, "name": "Пульс"},
+        {"value": 3, "name": "Батарея"},
+        {"value": 4, "name": "Фонарик"}
+      ]
+    }
+  ]
+}
