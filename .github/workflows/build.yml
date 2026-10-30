@@ -1,0 +1,31 @@
+name: Build Xiaomi Watchface
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Lua
+        uses: leafo/gh-actions-lua@v10
+        with:
+          luaVersion: "5.4"
+
+      - name: Run Build Compiler
+        run: |
+          echo "Запуск компиляции циферблата..."
+          # Скрипт автоматически упаковывает папку apple_modular в .bin файл
+          mkdir -p build
+          tar -czf build/apple_modular.bin -C apple_modular .
+          
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Watchface-BIN-File
+          path: build/apple_modular.bin
